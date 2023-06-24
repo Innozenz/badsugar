@@ -9,21 +9,13 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-export const config = {
-    api: {
-        bodyParser: false
-    }
-}
-
 export default async function handler(req, res) {
     if (req.method === 'POST') {
 
         try {
             const result = await new Promise((resolve, reject) => {
-                // @ts-ignore
                 upload.single('image')(req, res, (err) => {
                     if (err) return reject(err);
-                    // @ts-ignore
                     return resolve(req.file);
                 });
             });
@@ -31,7 +23,6 @@ export default async function handler(req, res) {
             console.log(result);
 
             const imagePath = `/uploads/`;
-            // @ts-ignore
             const image = result ? imagePath + result.filename : '';
             const { title, description } = req.body;
             console.log(req.body)

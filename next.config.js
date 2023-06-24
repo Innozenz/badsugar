@@ -4,6 +4,9 @@ const nextConfig = {
   tailwindcss: {
     enabled: true,
   },
+  api: {
+    bodyParser: false
+  },
 }
 
 module.exports = nextConfig

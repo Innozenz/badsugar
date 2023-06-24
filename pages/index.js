@@ -16,7 +16,7 @@ export default function Home({works}) {
 
 export async function getServerSideProps() {
     try {
-        const response = await axios.get('http://localhost:3000/api/admin/getworks');
+        const response = await axios.get('/api/admin/getWorks');
         const works = response.data;
         return {
             props: { works },

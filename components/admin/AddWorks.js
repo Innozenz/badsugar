@@ -21,7 +21,7 @@ export default function AddWorks() {
         e.preventDefault();
 
         try {
-            const response = await axios.post('/api/admin/addworks', formData, {
+            const response = await axios.post('/api/admin/addWorks', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
