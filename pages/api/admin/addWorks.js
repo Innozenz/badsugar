@@ -9,6 +9,12 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+export const config = {
+    api: {
+        bodyParser: false
+    }
+}
+
 export default async function handler(req, res) {
     if (req.method === 'POST') {
 

@@ -14,14 +14,14 @@ export default function AddWorks() {
     const formData = new FormData();
     formData.append('title', title);
     formData.append('description', description);
-    formData.append('image', image);
+    formData.append('image', image || '');
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('https://badsugar.vercel.app/api/admin/addWorks', formData, {
+            const response = await axios.post('/api/admin/addWorks', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
