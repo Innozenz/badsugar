@@ -37,6 +37,7 @@ export default async function handler(req, res) {
             await work.save();
 
             res.status(200).json({ message: 'Travail ajouté avec succès.' });
+            res.redirect(303, '/')
         } catch (error) {
             console.error(error);
             res.status(500).json({ message: 'Une erreur s\'est produite lors de l\'ajout du travail.' });
