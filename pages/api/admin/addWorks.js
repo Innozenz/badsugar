@@ -15,7 +15,7 @@ export const config = {
     }
 }
 
-export default async function handler(req, res) {
+async function handler(req, res) {
     if (req.method === 'POST') {
 
         try {
@@ -45,3 +45,5 @@ export default async function handler(req, res) {
         res.status(400).json({ message: 'Méthode non autorisée.' });
     }
 }
+
+export default handler;

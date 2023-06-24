@@ -1,7 +1,8 @@
 import {useState} from 'react';
 import axios from 'axios';
+import dynamic from "next/dynamic";
 
-export default function AddWorks() {
+function AddWorks() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [image, setImage] = useState(null);
@@ -55,3 +56,5 @@ export default function AddWorks() {
         </div>
     );
 }
+
+export default dynamic(() => Promise.resolve(AddWorks), {ssr: false}) ;

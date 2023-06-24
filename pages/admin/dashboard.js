@@ -8,4 +8,5 @@ const Dashboard = () => {
         </div>
     );
 };
+Dashboard.auth = {adminOnly: true};
 export default Dashboard;
