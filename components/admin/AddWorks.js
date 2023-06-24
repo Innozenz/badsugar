@@ -20,18 +20,19 @@ export default function AddWorks() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        try {
             const response = await axios.post('/api/admin/addWorks', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
-            });
-            console.log(response.data); // Affiche la réponse du serveur
-            // Redirige l'utilisateur vers la page du portfolio ou effectue une autre action
-        } catch (error) {
-            console.error(error);
-        }
+            }).then((response) => {
+                console.log(response.data);
+            }).catch((error) => {
+                console.log(error);
+            }
+        );
+        console.log(response)
     };
+
 
 
     return (
