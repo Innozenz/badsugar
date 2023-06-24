@@ -31,12 +31,14 @@ export default function LoginScreen() {
                                      name,
                                      email,
                                      password,
+        confirmPassword
                                  }) => {
         try {
             await axios.post('/api/auth/signup', {
                 name,
                 email,
                 password,
+                confirmPassword,
             });
 
             const result = await signIn('credentials', {
