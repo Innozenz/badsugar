@@ -16,7 +16,7 @@ export default function Home({works}) {
 
 export async function getServerSideProps() {
     try {
-        const response = await axios.get('/api/admin/getWorks');
+        const response = await axios.get('https://badsugar.vercel.app/api/admin/getWorks');
         const works = response.data;
         return {
             props: { works },
