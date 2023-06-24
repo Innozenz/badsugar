@@ -13,21 +13,10 @@ export default async function handler(req, res) {
     if (req.method === 'POST') {
 
         try {
-            const result = await new Promise((resolve, reject) => {
-                upload.single('image')(req, res, (err) => {
-                    if (err) return reject(err);
-                    return resolve(req.file);
-                });
-            });
-
-            console.log(result);
-
-            const imagePath = `/uploads/`;
-            const image = result ? imagePath + result.filename : '';
             const { title, description } = req.body;
             console.log(req.body)
             await db.connect();
-            const work = new Work({ title, description, image });
+            const work = new Work({ title, description });
             await work.save();
 
             res.status(200).json({ message: 'Travail ajouté avec succès.' });

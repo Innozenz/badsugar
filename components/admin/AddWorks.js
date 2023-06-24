@@ -14,7 +14,6 @@ export default function AddWorks() {
     const formData = new FormData();
     formData.append('title', title);
     formData.append('description', description);
-    formData.append('image', image || '');
 
 
     const handleSubmit = async (e) => {
@@ -30,7 +29,7 @@ export default function AddWorks() {
                 console.log(error);
             }
         );
-        console.log(response)
+        console.log(response.data)
     };
 
 
@@ -50,7 +49,6 @@ export default function AddWorks() {
                     onChange={(e) => setDescription(e.target.value)}
                     placeholder="Description"
                 ></textarea>
-                <input type="file" onChange={handleImageChange} />
                 <button type="submit">Ajouter</button>
             </form>
         </div>
