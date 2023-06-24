@@ -1,12 +1,9 @@
 {
   "version": 2,
-  "routes": [
+  "rewrites": [
     {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/.*",
-      "dest": "/api/vercel-ssr/index.js"
+      "source": "/api/auth/(.*)",
+      "destination": "/api/auth/[auth].js?auth=$1"
     }
   ]
 }
