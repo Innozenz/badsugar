@@ -27,7 +27,6 @@ export default function AddWorks() {
                 }
             });
             console.log(response.data); // Affiche la réponse du serveur
-            window.location.href = '/';
             // Redirige l'utilisateur vers la page du portfolio ou effectue une autre action
         } catch (error) {
             console.error(error);
