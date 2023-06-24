@@ -36,7 +36,6 @@ export default async function handler(req, res) {
             const work = new Work({ title, description, image });
             await work.save();
 
-            res.redirect(302, '/admin/addWorks');
             res.status(200).json({ message: 'Travail ajouté avec succès.' });
         } catch (error) {
             console.error(error);
