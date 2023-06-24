@@ -14,24 +14,24 @@ export default function AddWorks() {
     const formData = new FormData();
     formData.append('title', title);
     formData.append('description', description);
+    formData.append('image', image || '');
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        try {
             const response = await axios.post('/api/admin/addWorks', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
-            }).then((response) => {
-                console.log(response.data);
-            }).catch((error) => {
-                console.log(error);
-            }
-        );
-        console.log(response.data)
+            });
+            console.log(response.data); // Affiche la réponse du serveur
+            // Redirige l'utilisateur vers la page du portfolio ou effectue une autre action
+        } catch (error) {
+            console.error(error);
+        }
     };
-
 
 
     return (
@@ -49,6 +49,7 @@ export default function AddWorks() {
                     onChange={(e) => setDescription(e.target.value)}
                     placeholder="Description"
                 ></textarea>
+                <input type="file" onChange={handleImageChange} />
                 <button type="submit">Ajouter</button>
             </form>
         </div>
