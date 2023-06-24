@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import axios from 'axios';
+import {router} from "next/client";
 
 export default function AddWorks() {
     const [title, setTitle] = useState('');
@@ -21,12 +22,13 @@ export default function AddWorks() {
         e.preventDefault();
 
         try {
-            const response = await axios.post('https://badsugar.vercel.app/api/admin/addWorks', formData, {
+            const response = await axios.post('/api/admin/addWorks', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             });
             console.log(response.data); // Affiche la réponse du serveur
+            router.push('/');
             // Redirige l'utilisateur vers la page du portfolio ou effectue une autre action
         } catch (error) {
             console.error(error);
